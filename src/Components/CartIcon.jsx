@@ -8,7 +8,7 @@ const CartIcon = () => {
     const { cartItems, cartCount } = useContext(CartContext)
     const navigate = useNavigate()
 
-    const goToCheckOutHandler =() =>{
+    const goToCheckOutHandler = () => {
         navigate('/checkout')
     }
 
@@ -24,9 +24,11 @@ const CartIcon = () => {
                 <div className='flex-1 h-auto max-h-80 overflow-auto'>
                     <ul className=' menu rounded bg-base-200'>
                         {
-                            cartItems.map((item) => (
-                                <CartItem key={item.id} cartItem={item} />
-                            ))
+                            cartItems.length ?
+                                (cartItems.map((item) => (
+                                    <CartItem key={item.id} cartItem={item} />
+                                ))) :
+                                <p>Your cart is empty</p>
                         }
                     </ul>
                 </div>

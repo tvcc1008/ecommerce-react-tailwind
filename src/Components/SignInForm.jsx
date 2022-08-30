@@ -27,13 +27,13 @@ const SignInForm = () => {
         e.preventDefault()
 
         try {
-            const { user } = await signInAuthUserWithEmailAndPassword(
+            await signInAuthUserWithEmailAndPassword(
                 email,
                 password
             );
             setFormFields(defaultFormFields)
             // setCurrentUser(user);
-            history('/')
+            // history('/')
         } catch (error) {
             console.log(error);
         }
